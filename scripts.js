@@ -1,18 +1,9 @@
-// Replace ./data.json with your JSON feed
-/*
-fetch("http://xkcd.com/info.0.json")
-  .then((res) => res.json())
-  .then((data) => console.log(data));
-*/
-
-// Init leaflet.js map
-
 // Get DOM targets, add listeners
 
 const issBtn = document.getElementById("iss-btn");
 document.getElementById("cocktail-btn").addEventListener("click", getDrink);
 document.getElementById("iss-btn").addEventListener("click", getISS);
-document.getElementById("joke-btn").addEventListener("click", getJoke);
+document.getElementById("joke-btn").addEventListener("click", getMoreJokes);
 //document.getElementById("kayne-btn").addEventListener("click", getKanye);
 
 document.getElementById("home-btn").addEventListener("click", function () {
@@ -85,13 +76,28 @@ async function getDrink() {
 
 // Random Joke
 const joke_url =
-  "https://sv443.net/jokeapi/v2/joke/Miscellaneous?blacklistFlags=nsfw,religious,political,racist,sexist&type=single";
+  "https://sv443.net/joeapi/v2/joke/Miscellaneous?blacklistFlags=nsfw,religious,political,racist,sexist&type=single";
 async function getJoke() {
   const response = await fetch(joke_url);
   const data = await response.json();
   console.log(data.joke);
   document.getElementById("thing-title").innerHTML = "Random Joke!";
   document.getElementById("thing-desc").innerHTML = `${data.joke}`;
+}
+
+const moreJokes_url = "./jokes.json";
+
+async function getMoreJokes() {
+  const response = await fetch(moreJokes_url);
+  const data = await response.json();
+  console.log(data);
+  const output = random_item(data.jokes);
+  console.log(output);
+  document.getElementById("thing-desc").innerHTML = `${output.joke}`;
+}
+
+function random_item(items) {
+  return items[Math.floor(Math.random() * items.length)];
 }
 
 // Random Kayne
