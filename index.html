@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+      integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+      crossorigin=""
+    />
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script
+      src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+      integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+      crossorigin=""
+    ></script>
+
+    <link rel="stylesheet" type="text/css" href="style.css" />
+
+    <title>RandoAPI</title>
+  </head>
+  <body>
+    <div class="container">
+      <button class="btn" id="home-btn">Home</button>
+      <button class="btn" id="joke-btn">Jokes</button>
+
+      <button class="btn" id="iss-btn">Where's the ISS?</button>
+      <button class="btn" id="cocktail-btn">Cocktails</button>
+    </div>
+    <div class="display">
+      <h2 id="thing-title">
+        Welcome to Podge's Lodge of HodgePodge!
+      </h2>
+      <p id="thing-desc">
+        Click the buttons above to get a random joke, random cocktail or just
+        find out where the International Space Station is right now. Click
+        'Home' to return to here. Yes, yes, the styling for everything is
+        terrible....
+      </p>
+    </div>
+    <script src="scripts.js"></script>
+  </body>
+</html>
