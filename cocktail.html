@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <link rel="stylesheet" type="text/css" href="style.css" />
 
     <title>RandoAPI</title>
@@ -24,6 +25,22 @@
         </ul>
       </div>
     </nav>
+
+    <body onload="getDrink()">
+
+    <div class="card">
+      <div class="container">
+        <h4><b>Random Cocktail!</b></h4>
+        <img id="cocktail-pic" style="width: 120px; height: 120px;" />
+        <p id="cocktail-display"></p>
+        <button id="cockBtn">Click me for another random cocktail!</button>
+      </div>
+    </div>
+
     <script src="scripts.js"></script>
+    <script>
+      const cockBtn = document.getElementById("cockBtn");
+      cockBtn.addEventListener("click", getDrink);
+    </script>
   </body>
 </html>
