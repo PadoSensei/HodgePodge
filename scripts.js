@@ -13,6 +13,120 @@ const imgs = document.querySelector(".imgs");
 const img = document.querySelectorAll(".imgs img");
 const opacity = 0.6;
 
+// Art buttons & listeners
+const vase_btn = document
+  .getElementById("vase_btn")
+  .addEventListener("click", vasePics);
+const coast_btn = document
+  .getElementById("coast_btn")
+  .addEventListener("click", coastPics);
+const swan_btn = document
+  .getElementById("swan_btn")
+  .addEventListener("click", swanPics);
+const garden_btn = document
+  .getElementById("garden_btn")
+  .addEventListener("click", gardenPics);
+
+const canal_btn = document
+  .getElementById("canal_btn")
+  .addEventListener("click", canalPics);
+
+//
+function gardenPics() {
+  const currentPic = document.getElementById("current");
+  currentPic.src = "./Art/Seat_Orig.jpeg";
+  removeGallery();
+  garden_pics.forEach((element) => {
+    createGalleryImage(element);
+  });
+}
+
+function vasePics() {
+  const currentPic = document.getElementById("current");
+  currentPic.src = "./Art/Vase_Orig.jpeg";
+  removeGallery();
+  vase_pics.forEach((element) => {
+    createGalleryImage(element);
+  });
+}
+
+function coastPics() {
+  const currentPic = document.getElementById("current");
+  currentPic.src = "./Art/Coast_Orig.jpeg";
+  removeGallery();
+  coast_pics.forEach((element) => {
+    createGalleryImage(element);
+  });
+}
+
+function createGalleryImage(path) {
+  image = document.createElement("img");
+  image.src = path;
+  image.className = "gallery";
+  document.getElementById("gallery_pics").appendChild(image);
+}
+
+function canalPics() {
+  const currentPic = document.getElementById("current");
+  currentPic.src = "./Art/Canal_Orig.jpeg";
+  removeGallery();
+  //canal_pics.forEach((element) => {
+  //createGalleryImage(element);
+}
+
+function swanPics() {
+  const currentPic = document.getElementById("current");
+  currentPic.src = "./Art/Swan_Orig.jpeg";
+  removeGallery();
+  // run your function on swan_pics
+}
+
+const vase_pics = [
+  "./Art/Vase_Dad.jpeg",
+  "./Art/Vase_Kates.jpeg",
+  "./Art/Vase_Lu.jpeg",
+  "./Art/Vase_Maria.jpeg",
+  "./Art/Vase_Mum.jpeg",
+  "./Art/Vase_P.png",
+  "./Art/Vase_Steve.jpeg",
+  "./Art/Vase_Orig.jpeg",
+];
+
+const swan_pics = ["swan_Orig.jpeg"];
+
+const coast_pics = [
+  "./Art/Coast_Dad.jpeg",
+  "./Art/Coast_Kates.jpeg",
+  "./Art/Coast_Maria.jpeg",
+  "./Art/Coast_Steve.jpeg",
+  "./Art/Coast_Orig.jpeg",
+  "Art/Coast_P.jpg",
+];
+
+const garden_pics = [
+  "./Art/Seat_P.jpeg",
+  "./Art/Seat_Steve.jpeg",
+  "./Art/Seat_Dad.jpeg",
+  "./Art/Seat_Kates.jpeg",
+  "./Art/Seat_Maria.jpeg",
+  "./Art/Seat_Orig.jpeg",
+];
+
+const canal_pics = [
+  "./Art/Canal_Dad.jpeg",
+  "./Art/Canal_Maria.jpeg",
+  "./Art/Canal_Steve.jpeg",
+];
+
+function removeGallery() {
+  const galleryPics = document.getElementsByClassName("gallery");
+  while (galleryPics.length > 0) {
+    const element = galleryPics[0];
+    element.parentNode.removeChild(element);
+    console.log("picture removed.");
+  }
+}
+
 // Set first img opacity
 img[0].style.opacity = opacity;
 imgs.addEventListener("click", imgClick);
