@@ -7,6 +7,14 @@ toggleButton.addEventListener("click", () => {
   navbarLinks.classList.toggle("active");
 });
 
+// Splash intro home page
+const splash = document.querySelector(".splash");
+document.addEventListener("DOMContentLoaded", (e) => {
+  setTimeout(() => {
+    splash.classList.add("display-none");
+  }, 2000);
+});
+
 // Gallery grid and opaque selection
 const current = document.querySelector("#current");
 const imgs = document.querySelector(".imgs");
