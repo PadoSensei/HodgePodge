@@ -28,16 +28,16 @@ const vase_btn = document
 const coast_btn = document
   .getElementById("coast_btn")
   .addEventListener("click", coastPics);
-const swan_btn = document
-  .getElementById("swan_btn")
-  .addEventListener("click", swanPics);
+// const swan_btn = document
+//   .getElementById("swan_btn")
+//   .addEventListener("click", swanPics);
 const garden_btn = document
   .getElementById("garden_btn")
   .addEventListener("click", gardenPics);
 
-const canal_btn = document
-  .getElementById("canal_btn")
-  .addEventListener("click", canalPics);
+// const canal_btn = document
+//   .getElementById("canal_btn")
+//   .addEventListener("click", canalPics);
 
 //
 function gardenPics() {
