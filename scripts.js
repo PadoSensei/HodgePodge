@@ -42,7 +42,7 @@ const opacity = 0.6;
 
   // Define the path you want to match
   let targetPath = "/gallery.html";
-  let deployedPath = "https://padosensei.github.io/HodgePodge/gallery.html";
+  let deployedPath = "HodgePodge/gallery.html";
   console.log(currentPath);
   if (currentPath === targetPath || currentPath === deployedPath) {
     const vase_btn = document
