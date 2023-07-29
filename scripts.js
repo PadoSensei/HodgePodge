@@ -1,12 +1,4 @@
-// Hamburger Menu Toggle script
-
-const toggleButton = document.getElementsByClassName("toggle-button")[0];
-const navbarLinks = document.getElementsByClassName("navbar-links")[0];
-
-toggleButton.addEventListener("click", () => {
-  navbarLinks.classList.toggle("active");
-});
-
+// gallery files
 const vase_pics = [
   "./Art/Vase_Dad.jpeg",
   "./Art/Vase_Kates.jpeg",
@@ -46,7 +38,7 @@ const canal_pics = [
 
 // Splash intro home page
 // Checks url path and executes on /index.html
-// Multipe
+// IIFEs run on each html page loading, pulling the resources as needed.
 (function () {
   // Get the current URL path
   let currentPath = window.location.pathname;
@@ -103,13 +95,6 @@ const opacity = 0.6;
   }
 })();
 
-// const swan_btn = document
-//   .getElementById("swan_btn")
-//   .addEventListener("click", swanPics);
-// const canal_btn = document
-//   .getElementById("canal_btn")
-//   .addEventListener("click", canalPics);
-
 // Functions to apply selected gallery to current display
 function gardenPics() {
   const currentPic = document.getElementById("current");
@@ -145,27 +130,11 @@ function createGalleryImage(path) {
   document.getElementById("gallery_pics").appendChild(image);
 }
 
-function canalPics() {
-  const currentPic = document.getElementById("current");
-  currentPic.src = "./Art/Canal_Orig.jpeg";
-  removeGallery();
-  //canal_pics.forEach((element) => {
-  //createGalleryImage(element);
-}
-
-function swanPics() {
-  const currentPic = document.getElementById("current");
-  currentPic.src = "./Art/Swan_Orig.jpeg";
-  removeGallery();
-  // run your function on swan_pics
-}
-
 function removeGallery() {
   const galleryPics = document.getElementsByClassName("gallery");
   while (galleryPics.length > 0) {
     const element = galleryPics[0];
     element.parentNode.removeChild(element);
-    console.log("picture removed.");
   }
 }
 
@@ -204,17 +173,22 @@ function random_item(items) {
 
 // // Random Cocktail - getDrink()
 
+// call to api
 async function getDrink() {
   const response = await fetch(
     "https://www.thecocktaildb.com/api/json/v1/1/random.php"
   );
   const data = await response.json();
-  console.log(data);
+  // console.log(data);
+
+  // destructure data for rendering
   const drink = data.drinks[0].strDrink;
   const glass = data.drinks[0].strGlass;
   const instruct = data.drinks[0].strInstructions;
   const image = data.drinks[0].strDrinkThumb;
   const ingredList = [];
+
+  // check data
   if (data.drinks[0].strIngredient1 != null) {
     ingredList.push(data.drinks[0].strIngredient1);
   }
@@ -230,7 +204,6 @@ async function getDrink() {
   if (data.drinks[0].strIngredient5 != null) {
     ingredList.push(data.drinks[0].strIngredient5);
   }
-  console.log(ingredList);
   const measureList = [];
   if (data.drinks[0].strMeasure1 != null) {
     measureList.push(data.drinks[0].strMeasure1);
@@ -247,15 +220,18 @@ async function getDrink() {
   if (data.drinks[0].strMeasure5 != null) {
     measureList.push(data.drinks[0].strMeasure5);
   }
-  console.log(measureList);
+  // console.log(measureList);
 
+  // render cocktail picture
   const pic = document.getElementById("cocktail-pic");
   pic.src = image;
 
+  // render cocktail title and serving suggestion
   document.getElementById(
     "cocktail-display"
   ).innerHTML = `Try a ${drink}.  It's served in a ${glass}. ${instruct}`;
 
+  // render list of actions
   for (let x = 0; x < ingredList.length; x++) {
     const ingredients = document.createElement("p");
     ingredients.innerText = measureList[x] + ": " + ingredList[x];
