@@ -15,8 +15,9 @@ toggleButton.addEventListener("click", () => {
 
   // Define the path you want to match
   let targetPath = "/index.html";
+  let deployedPath = "https://padosensei.github.io/HodgePodge/";
 
-  if (currentPath === targetPath) {
+  if (currentPath === targetPath || currentPath === deployedPath) {
     const splash = document.querySelector(".splash");
     document.addEventListener("DOMContentLoaded", (e) => {
       setTimeout(() => {
@@ -41,7 +42,8 @@ const opacity = 0.6;
 
   // Define the path you want to match
   let targetPath = "/gallery.html";
-  if (currentPath === targetPath) {
+  let deployedPath = "https://padosensei.github.io/HodgePodge/gallery.html";
+  if (currentPath === targetPath || currentPath === deployedPath) {
     const vase_btn = document
       .getElementById("vase_btn")
       .addEventListener("click", vasePics);
