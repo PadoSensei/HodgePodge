@@ -9,6 +9,7 @@ toggleButton.addEventListener("click", () => {
 
 // Splash intro home page
 // Checks url path and executes on /index.html
+// Multipe
 (function () {
   // Get the current URL path
   let currentPath = window.location.pathname;
@@ -18,7 +19,11 @@ toggleButton.addEventListener("click", () => {
   let deployedPathRoot = "/HodgePodge/";
   let deployedPathRootIndex = "/HodgePodge/index.html";
 
-  if (currentPath === targetPath || currentPath === deployedPath) {
+  if (
+    currentPath === targetPath ||
+    currentPath === deployedPathRoot ||
+    currentPath === deployedPathRootIndex
+  ) {
     const splash = document.querySelector(".splash");
     document.addEventListener("DOMContentLoaded", (e) => {
       setTimeout(() => {
@@ -43,9 +48,9 @@ const opacity = 0.6;
 
   // Define the path you want to match
   let targetPath = "/gallery.html";
-  let deployedPath = "HodgePodge/gallery.html";
+  let deployedPathRoot = "HodgePodge/gallery.html";
   console.log(currentPath);
-  if (currentPath === targetPath || currentPath === deployedPath) {
+  if (currentPath === targetPath || currentPath === deployedPathRoot) {
     const vase_btn = document
       .getElementById("vase_btn")
       .addEventListener("click", vasePics);
