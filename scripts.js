@@ -8,49 +8,23 @@ toggleButton.addEventListener("click", () => {
 });
 
 // Splash intro home page
-const splash = document.querySelector(".splash");
-document.addEventListener("DOMContentLoaded", (e) => {
-  setTimeout(() => {
-    splash.classList.add("display-none");
-  }, 2000);
-});
+// Checks url path and executes on /index.html
+(function () {
+  // Get the current URL path
+  let currentPath = window.location.pathname;
 
-const vase_pics = [
-  "./Art/Vase_Dad.jpeg",
-  "./Art/Vase_Kates.jpeg",
-  "./Art/Vase_Lu.jpeg",
-  "./Art/Vase_Maria.jpeg",
-  "./Art/Vase_Mum.jpeg",
-  "./Art/Vase_P.png",
-  "./Art/Vase_Steve.jpeg",
-  "./Art/Vase_Orig.jpeg",
-];
+  // Define the path you want to match
+  let targetPath = "/index.html";
 
-const swan_pics = ["swan_Orig.jpeg"];
-
-const coast_pics = [
-  "./Art/Coast_Dad.jpeg",
-  "./Art/Coast_Kates.jpeg",
-  "./Art/Coast_Maria.jpeg",
-  "./Art/Coast_Steve.jpeg",
-  "./Art/Coast_Orig.jpeg",
-  "Art/Coast_P.jpg",
-];
-
-const garden_pics = [
-  "./Art/Seat_P.jpeg",
-  "./Art/Seat_Steve.jpeg",
-  "./Art/Seat_Dad.jpeg",
-  "./Art/Seat_Kates.jpeg",
-  "./Art/Seat_Maria.jpeg",
-  "./Art/Seat_Orig.jpeg",
-];
-
-const canal_pics = [
-  "./Art/Canal_Dad.jpeg",
-  "./Art/Canal_Maria.jpeg",
-  "./Art/Canal_Steve.jpeg",
-];
+  if (currentPath === targetPath) {
+    const splash = document.querySelector(".splash");
+    document.addEventListener("DOMContentLoaded", (e) => {
+      setTimeout(() => {
+        splash.classList.add("display-none");
+      }, 2000);
+    });
+  }
+})();
 
 // Gallery grid and opaque selection
 const current = document.querySelector("#current");
@@ -59,24 +33,38 @@ const img = document.querySelectorAll(".imgs img");
 const opacity = 0.6;
 
 // Art buttons & listeners
-const vase_btn = document
-  .getElementById("vase_btn")
-  .addEventListener("click", vasePics);
-const coast_btn = document
-  .getElementById("coast_btn")
-  .addEventListener("click", coastPics);
+// Conduct URL Check to avoid calling function on wrong path
+// Two disabled due to lack of pictures
+
+(() => {
+  let currentPath = window.location.pathname;
+
+  // Define the path you want to match
+  let targetPath = "/gallery.html";
+  if (currentPath === targetPath) {
+    const vase_btn = document
+      .getElementById("vase_btn")
+      .addEventListener("click", vasePics);
+    const coast_btn = document
+      .getElementById("coast_btn")
+      .addEventListener("click", coastPics);
+    const garden_btn = document
+      .getElementById("garden_btn")
+      .addEventListener("click", gardenPics);
+    // Set first img opacity
+    img[0].style.opacity = opacity;
+    imgs.addEventListener("click", imgClick);
+  }
+})();
+
 // const swan_btn = document
 //   .getElementById("swan_btn")
 //   .addEventListener("click", swanPics);
-const garden_btn = document
-  .getElementById("garden_btn")
-  .addEventListener("click", gardenPics);
-
 // const canal_btn = document
 //   .getElementById("canal_btn")
 //   .addEventListener("click", canalPics);
 
-//
+// Functions to apply selected gallery to current display
 function gardenPics() {
   const currentPic = document.getElementById("current");
   currentPic.src = "./Art/Seat_Orig.jpeg";
@@ -135,10 +123,6 @@ function removeGallery() {
   }
 }
 
-// Set first img opacity
-img[0].style.opacity = opacity;
-imgs.addEventListener("click", imgClick);
-
 function imgClick(e) {
   // Reset the opacity
   img.forEach((img) => (img.style.opacity = 1));
@@ -157,8 +141,6 @@ function imgClick(e) {
 }
 
 // Joke JSON and display
-// const jokeBtn = document.getElementById("jokeBtn");
-// jokeBtn.addEventListener("click", getMoreJokes);
 
 async function getMoreJokes() {
   const response = await fetch("./jokes.json");
@@ -175,9 +157,8 @@ function random_item(items) {
 }
 
 // // Random Cocktail - getDrink()
-//const drink_url = "https://www.thecocktaildb.com/api/json/v1/1/random.php";
+
 async function getDrink() {
-  //const drink_url = "https://www.thecocktaildb.com/api/json/v1/1/random.php";
   const response = await fetch(
     "https://www.thecocktaildb.com/api/json/v1/1/random.php"
   );
