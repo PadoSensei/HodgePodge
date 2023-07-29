@@ -102,13 +102,21 @@ body {
 .container {
   max-width: 760px;
   margin: auto;
-  border: #fff solid 3px;
   background: linear-gradient(to left, #ff5f6d, #ffc371);
+  padding: 5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.joke-title {
+  text-align: center;
 }
 
 .main-img img,
 .imgs img {
   width: 100%;
+  height: auto;
+  border: 1px solid #ccc;
 }
 
 .splash {
@@ -152,8 +160,6 @@ body {
 #welcome {
   display: flex;
   flex-direction: column;
-  height: 30%;
-  width: 50%;
   background-color: #333;
   color: whitesmoke;
   position: fixed;
@@ -220,12 +226,7 @@ body {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
-/* Add some padding inside the card container */
-.container {
-  padding: 2px 16px;
-  background: linear-gradient(to left, #ff5f6d, #ffc371);
-  border-style: none;
-}
+
 
 #art-title {
   text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9,
