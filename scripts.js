@@ -15,7 +15,7 @@ toggleButton.addEventListener("click", () => {
 
   // Define the path you want to match
   let targetPath = "/index.html";
-  let deployedPath = "https://padosensei.github.io/HodgePodge/";
+  let deployedPath = "/HodgePodge/";
   console.log(currentPath);
   if (currentPath === targetPath || currentPath === deployedPath) {
     const splash = document.querySelector(".splash");
