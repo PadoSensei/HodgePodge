@@ -78,7 +78,7 @@ const opacity = 0.6;
   // Define the path you want to match
   let targetPath = "/gallery.html";
   let deployedPathRoot = "/HodgePodge/gallery.html";
-  console.log(currentPath);
+  // console.log(currentPath);
   if (currentPath === targetPath || currentPath === deployedPathRoot) {
     const vase_btn = document
       .getElementById("vase_btn")
@@ -160,9 +160,9 @@ function imgClick(e) {
 async function getMoreJokes() {
   const response = await fetch("./jokes.json");
   const data = await response.json();
-  console.log(data);
+  // console.log(data);
   const output = random_item(data.jokes);
-  console.log(output);
+  // console.log(output);
 
   document.getElementById("joke-display").innerHTML = `${output.joke}`;
 }
